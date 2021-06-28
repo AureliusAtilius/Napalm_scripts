@@ -1,4 +1,5 @@
 from napalm import get_network_driver
+import json
 
 # Import the network vendor driver
 driver=get_network_driver('ios')
@@ -7,8 +8,8 @@ driver=get_network_driver('ios')
 s1=driver('192.168.255.70','josh','cisco')
 
 # Open ssh connection to device
-s1.Open()
+s1.open()
 
 #Get device facts and print them
 ios_output = s1.get_facts()
-print (ios_output)
+print (json.dumps(ios_output, indent = 4))
