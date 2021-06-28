@@ -13,3 +13,7 @@ s1.open()
 #Get device facts and print them
 ios_output = s1.get_facts()
 print (json.dumps(ios_output, indent = 4))
+
+# Get device interfaces counters
+ios_output = s1.get_interfaces_counters()
+print (json.dumps(ios_output, indent = 4))
