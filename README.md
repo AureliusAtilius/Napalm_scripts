@@ -3,3 +3,6 @@ Collection of network automation scripts with Napalm.
 
 napalm1.py
 Use napalm to open an ssh session to s1 and print device facts.
+
+napalmbgp1.py
+Use napalm to return BGP neighbors.
