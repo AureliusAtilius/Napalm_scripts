@@ -2,7 +2,7 @@ import json
 from napalm import get_network_driver
 
 # List of router IP addresses
-bgp_list = ['192.168.255.70', '1923.168.255.1']
+bgp_list = ['192.168.255.70', '192.168.255.1']
 
 # Iterate over router IP addresses
 for ip_address in bgp_list:
