@@ -13,3 +13,5 @@ Iterate over a list of router IPs and use Napalm to connect and retrieve BGP nei
 napalmconfig1.py
 Opens a connection to s1, loads and applies a configuration from a local file (ACL1.cfg)
 
+napalmconfig4.py
+Opens a connection to s1, loads and applies ACL and OSPF configurations from two separate local files (ACL1.cfg, ospf1.cfg)
