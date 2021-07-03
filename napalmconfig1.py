@@ -10,7 +10,15 @@ s1.open()
 
 print('Accessing 192.168.255.70')
 
-# Load configuration from local file and commit, close connection
+# Load configuration from local file and compare it to running config
 s1.load_merge_candidate(filename='ACL1.cfg')
-s1.commit_config()
+
+# If changes are not already present in the config, apply changes and commit.
+diffs= s1.compare_config()
+if len(diffs)> 0:
+        print(diffs)
+        s1.commit_config()
+else:
+        print ('No changes required.')
+        s1.discard_config()
 s1.close()
