@@ -26,3 +26,19 @@ driver = get_network_driver(device_info['type'])
 with driver(device_info['IP'], device_info['user'], device_info['password']) as device:
     config = device.get_config()
     print(config['running'])
+
+
+    device.load_merge_candidate(filename='config.txt')
+    diffs= device.compare_config()
+    if diffs != "":
+        print(diffs)
+        yesno = input('\nDo you wish to apply the changes? [y/N] ').lower()
+        if yesno == 'y' or yesno == 'yes':
+            print("Applying changes... ")
+            device.commit_config()
+        else:
+            print("Discarding changes... ")
+            device.discard_config()
+    else:
+        print("Configuration already present on the device")
+        device.discard_config()
